@@ -1,2 +1,3 @@
 name: Jonathan Crane, entrepreneur
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
