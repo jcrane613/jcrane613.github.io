@@ -6,22 +6,29 @@
     <title>{{ page.title }} | Jonathan Crane</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/main.css">
 </head>
-<body data-theme="dark">
+<body>
     <header>
-        <nav>
-            <div class="nav-container">
-                <a href="/" class="logo">jcrane.<span>dev</span></a>
-                <ul class="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/Jonathan_Crane_Resume_2026.docx" download>Resume</a></li>
-                    <li><button id="theme-toggle" class="theme-toggle">🌓</button></li>
-                    <li><a href="https://github.com/jcrane613" target="_blank">GitHub</a></li>
-                </ul>
-            </div>
+        <nav class="nav-container">
+            <a href="/" class="logo-wrapper">
+                <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 5l-4 4h-4l4-4h4zM3 19l4-4h4l-4 4H3zm15-7l-3 3h-4l3-3h4zM6 8l3-3h4l-3 3H6zm6 6l-3 3H5l3-3h4zm3-3l3-3h4l-3 3h-4z" />
+                </svg>
+                <span class="logo-text">jcrane.<span>dev</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/Jonathan_Crane_Resume_2026.docx" download>Resume</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                        <svg class="sun-icon" style="display:none; width:20px; height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <svg class="moon-icon" style="display:none; width:20px; height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                </li>
+            </ul>
         </nav>
     </header>
 
@@ -29,9 +36,24 @@
         {{ content }}
     </main>
 
+    <footer>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="mailto:jonathan.avi.crane@gmail.com">Email</a>
+                <a href="https://github.com/jcrane613" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/jonathan-crane-786226198" target="_blank">LinkedIn</a>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.85rem;">
+                &copy; <span id="current-year"></span> Jonathan Crane. Crafted for 2026.
+            </p>
+        </div>
+    </footer>
+
     <script>
         const storageKey = 'theme-preference';
         const toggle = document.querySelector('#theme-toggle');
+        const sunIcon = document.querySelector('.sun-icon');
+        const moonIcon = document.querySelector('.moon-icon');
         
         const getColorPreference = () => {
             if (localStorage.getItem(storageKey))
@@ -42,46 +64,38 @@
                     : 'light';
         };
 
-        const setPreference = () => {
-            localStorage.setItem(storageKey, theme.value);
-            reflectPreference();
-        };
+        const theme = { value: getColorPreference() };
 
         const reflectPreference = () => {
             document.body.setAttribute('data-theme', theme.value);
-            toggle?.setAttribute('aria-label', theme.value);
+            if (theme.value === 'dark') {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            } else {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            }
         };
 
-        const theme = { value: getColorPreference() };
         reflectPreference();
 
         window.onload = () => {
             reflectPreference();
-            // Set dynamic year
             document.getElementById('current-year').textContent = new Date().getFullYear();
             
             toggle.addEventListener('click', () => {
                 theme.value = theme.value === 'light' ? 'dark' : 'light';
-                setPreference();
+                localStorage.setItem(storageKey, theme.value);
+                reflectPreference();
             });
         };
 
         window.matchMedia('(prefers-color-scheme: dark)')
             .addEventListener('change', ({matches:isDark}) => {
                 theme.value = isDark ? 'dark' : 'light';
-                setPreference();
+                localStorage.setItem(storageKey, theme.value);
+                reflectPreference();
             });
     </script>
-
-    <footer>
-        <div class="footer-container">
-            <p>&copy; <span id="current-year"></span> Jonathan Crane. Built with Jekyll.</p>
-            <div class="social-links">
-                <a href="mailto:jonathan.avi.crane@gmail.com">Email</a>
-                <a href="https://github.com/jcrane613" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/jonathan-crane/" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

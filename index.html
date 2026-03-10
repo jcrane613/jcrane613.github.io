@@ -11,23 +11,23 @@ title: Jonathan Crane | Software Engineer
     </p>
 </section>
 
-<section id="experience" style="margin-top: 4rem;">
+<section id="experience">
     <h2 class="section-title">Experience</h2>
     <div class="project-card" style="border-left: 4px solid #ff9900;">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="color: var(--text-primary);">Software Development Engineer @ Amazon</h3>
-            <span class="badge" style="background: #ff9900; color: #000; border: none;">2024 - Present</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <h3 style="color: var(--text-primary); margin: 0;">Software Development Engineer @ Amazon</h3>
+            <span class="badge" style="background: rgba(255, 153, 0, 0.1); color: #ff9900; border: 1px solid #ff9900; margin: 0;">2024 - Present</span>
         </div>
-        <p style="margin-top: 1rem;">
+        <p style="margin-top: 1.5rem;">
             Architecting and delivering high-scale distributed systems and backend services for one of the world's largest retail platforms.
         </p>
-        <ul style="margin: 1rem 0 0 1.5rem; color: var(--text-secondary); font-size: 0.95rem;">
+        <ul style="margin: 1.5rem 0 0 1.5rem; color: var(--text-secondary); font-size: 0.95rem;">
             <li>Architected and led the "Text Next to Prime Badge" initiative across all Amazon marketplaces, delivering a major CX launch with a **$2.4B revenue impact**.</li>
             <li>Orchestrated complex multi-phase launch plans, including technical design ownership, task decomposition, and code reviews.</li>
             <li>Established critical metrics and dashboards to ensure system stability and performance during global rollout.</li>
             <li>Optimized low-latency API endpoints and migrated legacy services to modern AWS serverless architectures (CDK, Lambda, DynamoDB).</li>
         </ul>
-        <div class="tech-stack" style="margin-top: 1.25rem;">
+        <div class="tech-stack" style="margin-top: 2rem;">
             <span class="tech-tag">Java</span>
             <span class="tech-tag">AWS (CDK, Lambda, DynamoDB)</span>
             <span class="tech-tag">Distributed Systems</span>
@@ -39,20 +39,36 @@ title: Jonathan Crane | Software Engineer
 <section id="featured-project" style="margin-top: 4rem;">
     <h2 class="section-title">Current Obsession</h2>
     <div class="project-card" style="border: 2px solid var(--accent); background: linear-gradient(145deg, var(--card-bg), var(--bg-color));">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-            <h3>TorahLearning.vercel.app</h3>
-            <span class="badge" style="background: #1db954; color: white; border: none;">Spotify x YUTorah</span>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <h3 style="margin: 0;">TorahLearning.vercel.app</h3>
+            <span class="badge" style="background: rgba(29, 185, 84, 0.1); color: #1db954; border: 1px solid #1db954; margin: 0;">Spotify x YUTorah</span>
         </div>
-        <p style="margin-top: 1rem; font-size: 1.1rem; color: var(--text-primary);">
+        <p style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--text-primary);">
             I'm building at the intersection of <strong>Audio Engineering</strong> and <strong>Jewish Education</strong>. 
             This project bridges the gap between the Spotify streaming experience and the rich content of YUTorah, 
             creating a seamless interface for spiritual growth.
         </p>
-        <div class="tech-stack" style="margin-top: 1.5rem;">
-            <a href="https://torahlearning.vercel.app/" target="_blank" class="tech-tag" style="background: var(--accent); color: white; text-decoration: none;">Live Demo &rarr;</a>
+        <div class="tech-stack" style="margin-top: 2rem;">
+            <a href="https://torahlearning.vercel.app/" target="_blank" class="tech-tag" style="background: var(--accent); color: white; border: none; text-decoration: none; padding: 6px 14px;">Live Demo &rarr;</a>
             <span class="tech-tag">Next.js</span>
             <span class="tech-tag">Spotify API</span>
             <span class="tech-tag">Audio Processing</span>
+        </div>
+    </div>
+</section>
+
+<section id="stats" style="margin-top: 4rem;">
+    <h2 class="section-title">Activity Dashboard</h2>
+    <div class="projects-grid">
+        <div class="project-card" style="padding: 1.5rem; justify-content: center; align-items: center; text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em;">LeetCode Progress</span>
+            <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent); margin: 0.5rem 0;">450+</div>
+            <span style="font-size: 0.9rem; color: var(--text-secondary);">Problems Solved</span>
+        </div>
+        <div class="project-card" style="padding: 1.5rem; justify-content: center; align-items: center; text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em;">Workouts this Month</span>
+            <div style="font-size: 2.5rem; font-weight: 800; color: #ef4444; margin: 0.5rem 0;">18</div>
+            <span style="font-size: 0.9rem; color: var(--text-secondary);">Sessions Tracked</span>
         </div>
     </div>
 </section>
@@ -94,9 +110,9 @@ title: Jonathan Crane | Software Engineer
 
 <section id="skills" style="margin-top: 4rem;">
     <h2 class="section-title">Technical Arsenal</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
         <div>
-            <h4 style="margin-bottom: 0.5rem; color: var(--accent);">Languages</h4>
+            <h4 style="margin-bottom: 1rem; color: var(--accent); font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase;">Languages</h4>
             <div class="tech-stack">
                 <span class="tech-tag">Java</span>
                 <span class="tech-tag">Python</span>
@@ -107,7 +123,7 @@ title: Jonathan Crane | Software Engineer
             </div>
         </div>
         <div>
-            <h4 style="margin-bottom: 0.5rem; color: var(--accent);">Technologies</h4>
+            <h4 style="margin-bottom: 1rem; color: var(--accent); font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase;">Technologies</h4>
             <div class="tech-stack">
                 <span class="tech-tag">AWS (CDK, Lambda, DynamoDB)</span>
                 <span class="tech-tag">React</span>
