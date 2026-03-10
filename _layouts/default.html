@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/main.css">
 </head>
-<body class="dark-theme">
+<body data-theme="dark">
     <header>
         <nav>
             <div class="nav-container">
@@ -18,6 +18,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/blog">Blog</a></li>
                     <li><a href="/Jonathan_Crane_Resume_2026.docx" download>Resume</a></li>
+                    <li><button id="theme-toggle" class="theme-toggle">🌓</button></li>
                     <li><a href="https://github.com/jcrane613" target="_blank">GitHub</a></li>
                 </ul>
             </div>
@@ -27,6 +28,47 @@
     <main class="container">
         {{ content }}
     </main>
+
+    <script>
+        const storageKey = 'theme-preference';
+        const toggle = document.querySelector('#theme-toggle');
+        
+        const getColorPreference = () => {
+            if (localStorage.getItem(storageKey))
+                return localStorage.getItem(storageKey);
+            else
+                return window.matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : 'light';
+        };
+
+        const setPreference = () => {
+            localStorage.setItem(storageKey, theme.value);
+            reflectPreference();
+        };
+
+        const reflectPreference = () => {
+            document.body.setAttribute('data-theme', theme.value);
+            toggle?.setAttribute('aria-label', theme.value);
+        };
+
+        const theme = { value: getColorPreference() };
+        reflectPreference();
+
+        window.onload = () => {
+            reflectPreference();
+            toggle.addEventListener('click', () => {
+                theme.value = theme.value === 'light' ? 'dark' : 'light';
+                setPreference();
+            });
+        };
+
+        window.matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener('change', ({matches:isDark}) => {
+                theme.value = isDark ? 'dark' : 'light';
+                setPreference();
+            });
+    </script>
 
     <footer>
         <div class="footer-container">
