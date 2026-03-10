@@ -1,3 +1,9 @@
-name: Jonathan Crane, entrepreneur
+name: Jonathan Crane
+description: Software Engineer & Computer Science Student at Yeshiva University
+email: jajacrane.com
+github_username: jcrane613
+linkedin_username: # Add your linkedin username here
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+baseurl: ""
+url: "https://jcrane613.github.io"
