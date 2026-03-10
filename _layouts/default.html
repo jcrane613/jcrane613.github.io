@@ -57,6 +57,9 @@
 
         window.onload = () => {
             reflectPreference();
+            // Set dynamic year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
             toggle.addEventListener('click', () => {
                 theme.value = theme.value === 'light' ? 'dark' : 'light';
                 setPreference();
@@ -72,10 +75,11 @@
 
     <footer>
         <div class="footer-container">
-            <p>&copy; 2024 Jonathan Crane. Built with Jekyll.</p>
+            <p>&copy; <span id="current-year"></span> Jonathan Crane. Built with Jekyll.</p>
             <div class="social-links">
-                <a href="mailto:jajacrane.com">Email</a>
-                <a href="https://github.com/jcrane613">GitHub</a>
+                <a href="mailto:jonathan.avi.crane@gmail.com">Email</a>
+                <a href="https://github.com/jcrane613" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/jonathan-crane/" target="_blank">LinkedIn</a>
             </div>
         </div>
     </footer>

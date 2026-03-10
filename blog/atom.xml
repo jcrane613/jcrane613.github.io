@@ -11,7 +11,7 @@ layout: feed
 	<id>https://jcrane613.github.io/blog</id>
 	<author>
 		<name>Jonathan Crane</name>
-		<email>jajacrane.com</email>
+		<email>jonathan.avi.crane@gmail.com</email>
 	</author>
 
 	{% for post in site.posts %}
